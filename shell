@@ -1,0 +1,1 @@
+docker run -rm=true -v `pwd`:/ipython -p 49888:8888 -i -t ipython /bin/bash
