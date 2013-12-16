@@ -1,7 +1,16 @@
 docker-ipython
 ==============
 
-Run [IPython](http://ipython.org), [Pattern](http://www.clips.ua.ac.be/pattern), [NLTK](http://nltk.org), [Pandas](http://pandas.pydata.org), [NumPy](http://www.numpy.org), [SciPy](http://scipy.org) inside [Docker](http://www.docker.io)
+Run [IPython](http://ipython.org) inside [Docker](http://www.docker.io)
+
+Includes:
+* [Pattern](http://www.clips.ua.ac.be/pattern)
+* [NLTK](http://nltk.org)
+* [Pandas](http://pandas.pydata.org)
+* [NumPy](http://www.numpy.org)
+* [SciPy](http://scipy.org) 
+* [SymPy](http://sympy.org)
+* [Cython](http://cython.org)
 
 ```
 >pip freeze
