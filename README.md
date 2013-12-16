@@ -1,7 +1,7 @@
 docker-ipython
 ==============
 
-Run IPython, Pattern, NLTK, Pandas, NumPy, SciPy inside Docker
+Run [IPython](http://ipython.org), [Pattern](http://www.clips.ua.ac.be/pattern), [NLTK](http://nltk.org), [Pandas](http://pandas.pydata.org), [NumPy](http://www.numpy.org), [SciPy](http://scipy.org) inside [Docker](http://www.docker.io)
 
 ```
 >pip freeze
