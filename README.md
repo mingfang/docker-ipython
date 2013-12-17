@@ -3,7 +3,7 @@ docker-ipython
 
 Run [IPython](http://ipython.org) inside [Docker](http://www.docker.io)
 
-Includes:
+####Includes:
 * [Pattern](http://www.clips.ua.ac.be/pattern)
 * [NLTK](http://nltk.org)
 * [Pandas](http://pandas.pydata.org)
@@ -11,7 +11,15 @@ Includes:
 * [SciPy](http://scipy.org) 
 * [SymPy](http://sympy.org)
 * [Cython](http://cython.org)
+* [Numba](http://numba.pydata.org)
 
+####Instructions
+1. Build Docker image using the using ```build```.  This can take a long time, ~30mins.  Luckily this step only has to done once(or whenever you change the Dockerfile).
+2. Create and shell into new Docker container using ```shell``
+3. Start IPython Notebook using ```supervisord&```
+4. Point your brower to ```http://<your host name>:49888```
+
+####Version Detail
 ```
 >pip freeze
 
@@ -49,3 +57,5 @@ sympy==0.7.4.1
 tornado==3.1.1
 wsgiref==0.1.2
 ```
+
+Also includes 0MQ 4.0.3 and LLVM 3.2
