@@ -30,19 +30,25 @@ Jinja2==2.7.1
 MarkupSafe==0.18
 Pattern==2.6
 PyYAML==3.10
+Pygments==1.6
 argparse==1.2.1
 beautifulsoup4==4.3.2
+biopython==1.63
 distribute==0.7.3
-html5lib==1.0b3
+html5lib==0.99
 ipython==1.1.0
+llvmmath==0.1.1
+llvmpy==unknown
 lxml==2.3.2
 matplotlib==1.3.1
 medusa==0.5.4
 meld3==0.6.5
+networkx==1.8.1
 nltk==2.0.4
 nose==1.3.0
+numba==0.11.0
 numexpr==2.2.2
-numpy==1.8.0
+numpy==1.7.1
 pandas==0.12.0
 patsy==0.2.1
 pymc==2.3
@@ -57,6 +63,7 @@ supervisor==3.0a8
 sympy==0.7.4.1
 tornado==3.1.1
 wsgiref==0.1.2
+
 ```
 
 Also includes 0MQ 4.0.3 and LLVM 3.2
