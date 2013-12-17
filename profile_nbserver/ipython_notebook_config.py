@@ -402,4 +402,4 @@ c.IPKernelApp.pylab = 'inline'
 # c.NotebookManager.save_script = False
 
 # The directory to use for notebooks.
-c.NotebookManager.notebook_dir = '/ipython'
+c.NotebookManager.notebook_dir = '/ipython/notebooks'
