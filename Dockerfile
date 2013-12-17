@@ -19,27 +19,57 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openssh-server &&	mkdir /v
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y vim less net-tools inetutils-ping curl git telnet nmap socat dnsutils netcat
 
 #Required by Python packages
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential python-dev python-pip liblapack-dev libatlas-dev gfortran libfreetype6-dev libpng-dev libjpeg8-dev python-lxml libyaml-dev libzmq-dev
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential python-dev python-pip liblapack-dev libatlas-dev gfortran libfreetype6 libfreetype6-dev libpng12-dev python-lxml libyaml-dev g++ libffi-dev
 
+#0MQ
+RUN cd /tmp && \
+    wget http://download.zeromq.org/zeromq-4.0.3.tar.gz && \
+    tar xvfz zeromq-4.0.3.tar.gz && \
+    cd zeromq-4.0.3 && \
+    ./configure && \
+    make install && \
+    ldconfig
+
+#Upgrade pip
+RUN pip install -U pip
+#matplotlib needs latest distribute
+RUN pip install -U distribute
 #IPython
-RUN pip install -U ipython
+RUN pip install ipython
 ENV IPYTHONDIR /ipython
 RUN mkdir /ipython && \
     ipython profile create nbserver
+#NumPy v1.7.1 is required for Numba
+RUN pip install numpy==1.7.1
 #Pandas
-RUN pip install -U pandas
-#Pandas Optional
-RUN pip install -U distribute
-RUN pip install -U cython
-RUN pip install -U jinja2 pyzmq tornado
-RUN pip install -U numexpr bottleneck scipy matplotlib sympy pymc
-RUN pip install -U patsy
-RUN pip install -U statsmodels
-RUN pip install -U beautifulsoup4 html5lib
+RUN pip install pandas
+#Optional
+RUN pip install cython
+RUN pip install jinja2 pyzmq tornado
+RUN pip install numexpr bottleneck scipy pygments matplotlib sympy pymc
+RUN pip install patsy
+RUN pip install statsmodels
+RUN pip install beautifulsoup4 html5lib
 #Pattern
-RUN pip install -U pattern
+RUN pip install pattern
 #NLTK
-RUN pip install -U pyyaml nltk
+RUN pip install pyyaml nltk
+#Networkx
+RUN pip install networkx
+#LLVM and Numba
+RUN cd /tmp && \
+    wget http://llvm.org/releases/3.2/llvm-3.2.src.tar.gz && \
+    tar zxvf llvm-3.2.src.tar.gz && \
+    cd llvm-3.2.src && \
+    ./configure --enable-optimized && \
+    REQUIRES_RTTI=1 make install && \
+    pip install llvmpy && \
+    pip install llvmmath && \
+    pip install numba
+#Biopython
+RUN pip install biopython
+#Bokeh
+#RUN pip install requests bokeh
 
 
 ADD supervisord-ssh.conf /etc/supervisor/conf.d/
