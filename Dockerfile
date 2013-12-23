@@ -71,6 +71,13 @@ RUN pip install biopython
 #Bokeh
 #RUN pip install requests bokeh
 
+#Install R 3+
+RUN echo 'deb http://cran.rstudio.com/bin/linux/ubuntu precise/' > /etc/apt/sources.list.d/r.list
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+RUN apt-get update
+RUN apt-get install -y r-base
+#Rmagic
+RUN pip install rpy2
 
 ADD supervisord-ssh.conf /etc/supervisor/conf.d/
 ADD supervisord-ipython.conf /etc/supervisor/conf.d/
