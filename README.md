@@ -13,6 +13,7 @@ Run [IPython](http://ipython.org) inside [Docker](http://www.docker.io)
 * [Cython](http://cython.org)
 * [Numba](http://numba.pydata.org)
 * [Biopython](http://biopython.org)
+* [Rmagic](http://ipython.org/ipython-doc/dev/config/extensions/rmagic.html)
 
 ####Instructions
 1. Build Docker image using the using ```build```.  This can take a long time, ~30mins.  Luckily this step only has to done once(or whenever you change the Dockerfile).
