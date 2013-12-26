@@ -79,7 +79,13 @@ RUN apt-get install -y r-base
 #Rmagic
 RUN pip install rpy2
 
+#Vincent
+RUN pip install vincent
+
 ADD supervisord-ssh.conf /etc/supervisor/conf.d/
 ADD supervisord-ipython.conf /etc/supervisor/conf.d/
 
 EXPOSE 22 8888
+
+#Cleanup
+RUN rm -rf /tmp/*
