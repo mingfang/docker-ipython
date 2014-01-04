@@ -31,6 +31,7 @@ RUN cd /tmp && \
     ldconfig
 
 #Upgrade pip
+RUN pip install -U setuptools
 RUN pip install -U pip
 #matplotlib needs latest distribute
 RUN pip install -U distribute
@@ -51,7 +52,7 @@ RUN pip install patsy
 RUN pip install statsmodels
 RUN pip install beautifulsoup4 html5lib
 #Pattern
-RUN pip install pattern
+RUN pip install --allow-external pattern
 #NLTK
 RUN pip install pyyaml nltk
 #Networkx
