@@ -2,5 +2,7 @@
 
 #sv start socklog-unix || exit 1
 
+cd /ipython
+
 exec 2>&1
 exec /usr/local/bin/ipython notebook --profile=nbserver --pylab inline
